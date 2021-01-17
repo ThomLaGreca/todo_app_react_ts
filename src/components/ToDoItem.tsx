@@ -14,6 +14,13 @@ const ToDoItem: React.FC<ToDoItemProps> = ({item, addItem, removeItem}) => {
         addItem({ title: itemTitle, isEdit: false, id: item.id })
     }
 
+    function cancelEdit(){
+        setItemIsInEdit(false);
+        if(!itemTitle){
+            removeItem({ title: itemTitle, isEdit: false, id: item.id })
+        }
+    }
+
     if (itemIsInEdit) {
         return (
             <div className="toDoItemContainer">
@@ -24,7 +31,7 @@ const ToDoItem: React.FC<ToDoItemProps> = ({item, addItem, removeItem}) => {
                     <BiLike color={'green'} size={25} />
                 </button>
                 <button 
-                onClick={() => setItemIsInEdit(false)}
+                onClick={() => cancelEdit()}
                 className="toDoItemCancel">
                     <FcCancel color={'red'} size={25} />
                 </button>

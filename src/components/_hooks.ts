@@ -13,7 +13,8 @@ export function useCollection(): [IToDoItem[], (item: IToDoItem) => void, (item:
     }
 
     const removeItem = (item: IToDoItem) => {
-        let items = collection.filter((t) => t.title !== item.title);
+        console.log("Remove Item: ", item);
+        let items = collection.filter((t) => t.id !== item.id);
         setCollection(items);
     }
 
