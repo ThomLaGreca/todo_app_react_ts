@@ -1,0 +1,29 @@
+.toDoListContainer{
+    width: 250px;
+    margin: 10px;
+}
+
+.toDoListHeader{
+    background-color: #282c34;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+.toDoListHeader h3 {
+    color: white;
+}
+
+.toDoListAddItemButton{
+    background-color: green;
+    width: 250px;
+    border-radius: 5px;;
+    border: 1px solid green;
+    color: white;
+    font-size: 17px;
+    outline: 0;
+    padding: 5px 0;
+}
+.toDoListAddItemButton:hover{
+    cursor: pointer;
+    opacity: .8;
+}
