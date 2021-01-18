@@ -6,7 +6,7 @@ import { FcCancel } from 'react-icons/fc';
 import { FaTimesCircle } from 'react-icons/fa';
 import { MdDone } from 'react-icons/md'
 
-const ToDoItem: React.FC<ToDoItemProps> = ({ item, addItem, removeItem }) => {
+const ToDoItem: React.FC<ToDoItemProps> = ({ item, addItem, removeItem, transitionItem }) => {
 
     const [itemIsInEdit, setItemIsInEdit] = useState(item.isEdit);
     const [itemTitle, setItemTitle] = useState(item.title);
@@ -20,10 +20,16 @@ const ToDoItem: React.FC<ToDoItemProps> = ({ item, addItem, removeItem }) => {
         setItemIsInEdit(false);
     }
 
+    function onEnter(event: React.KeyboardEvent){
+        if(event.key === "Enter"){
+            confirmEdit();   
+        }
+    }
+
     if (itemIsInEdit) {
         return (
             <div className="toDoItemContainer">
-                <input value={itemTitle} onChange={(e) => setItemTitle(e.target.value)} />
+                <input value={itemTitle} onChange={(e) => setItemTitle(e.target.value)} onKeyPress={onEnter} />
                 <button
                     onClick={() => confirmEdit()}
                     className="toDoItemAccept">
@@ -50,7 +56,7 @@ const ToDoItem: React.FC<ToDoItemProps> = ({ item, addItem, removeItem }) => {
                         <FaTimesCircle color={'red'} size={25} />
                     </button>
                     <button
-                        onClick={() => removeItem({ title: itemTitle, isEdit: false, id: item.id })}
+                        onClick={() => transitionItem({ title: itemTitle, isEdit: false, id: item.id })}
                         className="toDoItemDone">
                         <MdDone color={'green'} size={25} />
                     </button>

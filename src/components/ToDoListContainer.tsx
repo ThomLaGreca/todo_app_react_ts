@@ -8,12 +8,14 @@ const ToDoListContainer: React.FC = () => {
         incompleteItems,
         addIncompleteItem,
         removeIncompleteItem,
+        transitionIncompleteItem,
         inProgressItems,
         addInProgressItem,
         removeInProgressItem,
+        transitionInProgressItem,
         doneItems,
-        addDoneItems,
-        removeDoneItems
+        addDoneItem,
+        removeDoneItem
     } = useContext(ItemContext) as ItemContextType
 
     return (
@@ -22,17 +24,20 @@ const ToDoListContainer: React.FC = () => {
                 addItem={addIncompleteItem}
                 removeItem={removeIncompleteItem}
                 title="Incomplete Items"
-                items={incompleteItems} />
+                items={incompleteItems}
+                transitionItem={transitionIncompleteItem} />
             <ToDoList
                 addItem={addInProgressItem}
                 removeItem={removeInProgressItem}
                 title="In Progress"
-                items={inProgressItems} />
+                items={inProgressItems}
+                transitionItem={transitionInProgressItem} />
             <ToDoList
-                addItem={addDoneItems}
-                removeItem={removeDoneItems}
+                addItem={addDoneItem}
+                removeItem={removeDoneItem}
                 title="Done"
-                items={doneItems} />
+                items={doneItems}
+                transitionItem={removeDoneItem} />
         </div>
     )
 }

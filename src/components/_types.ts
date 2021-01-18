@@ -8,12 +8,14 @@ export interface IToDoItem{
 export interface ToDoItemProps {
     item: IToDoItem,
     addItem: (item: IToDoItem) => void,
-    removeItem: (item: IToDoItem) => void
+    removeItem: (item: IToDoItem) => void,
+    transitionItem: (item: IToDoItem) => void
 }
 
 export interface ToDoListProps {
     title: string,
     items: IToDoItem[],
     addItem: (item: IToDoItem) => void,
-    removeItem: (item: IToDoItem) => void
+    removeItem: (item: IToDoItem) => void,
+    transitionItem: (item: IToDoItem) => void
 }

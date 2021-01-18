@@ -3,7 +3,7 @@ import './toDoList.css';
 import { ToDoItem } from './';
 import { IToDoItem, ToDoListProps } from './_types';
 
-const ToDoList: React.FC<ToDoListProps> = ({ title, items, addItem, removeItem }) => {
+const ToDoList: React.FC<ToDoListProps> = ({ title, items, addItem, removeItem, transitionItem }) => {
 
     const createItem = () => {
 
@@ -24,6 +24,7 @@ const ToDoList: React.FC<ToDoListProps> = ({ title, items, addItem, removeItem }
                 {items.map((item, i) => <ToDoItem 
                 key={`key${item.title}_${i}`}
                 item={item}
+                transitionItem={(item) => transitionItem(item)}
                 addItem={(item) => addItem(item)}
                 removeItem={(item) => removeItem(item)} />)}
             </div>
