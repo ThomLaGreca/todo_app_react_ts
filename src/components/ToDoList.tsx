@@ -2,11 +2,8 @@ import React from 'react';
 import './toDoList.css';
 import { ToDoItem } from './';
 import { IToDoItem, ToDoListProps } from './_types';
-import { useCollection } from './_hooks';
 
-const ToDoList: React.FC<ToDoListProps> = ({ title }) => {
-
-    const [items, addItem, removeItem] = useCollection();
+const ToDoList: React.FC<ToDoListProps> = ({ title, items, addItem, removeItem }) => {
 
     const createItem = () => {
 
@@ -24,8 +21,8 @@ const ToDoList: React.FC<ToDoListProps> = ({ title }) => {
                 <h3>{title}</h3>
             </header>
             <div>
-                {items.map((item) => <ToDoItem 
-                key={`key${item.title}`}
+                {items.map((item, i) => <ToDoItem 
+                key={`key${item.title}_${i}`}
                 item={item}
                 addItem={(item) => addItem(item)}
                 removeItem={(item) => removeItem(item)} />)}

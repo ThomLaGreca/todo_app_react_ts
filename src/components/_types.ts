@@ -13,5 +13,7 @@ export interface ToDoItemProps {
 
 export interface ToDoListProps {
     title: string,
-
+    items: IToDoItem[],
+    addItem: (item: IToDoItem) => void,
+    removeItem: (item: IToDoItem) => void
 }
